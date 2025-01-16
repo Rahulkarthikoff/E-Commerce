@@ -39,7 +39,7 @@
         <h1>Bharani Fashions</h1>
         <div class="navbar-links">
             <p class="side-navbar-link">
-                <button onclick="location.href = 'index.html'" class="header-button">Home</button>
+                <button onclick="location.href = 'home.html'" class="header-button">Home</button>
             </p>
             <p class="side-navbar-link">
                 <button onclick="location.href = 'collection.html'" class="header-button">Collections</button>
@@ -59,11 +59,174 @@
         // Example product data
         const products = {
             1: {
-                name: 'Kanchi Cotton Saree',
-                image: 'images/WA_Sarees/IMG-20240817-WA0001.jpg',
-                price: '₹850',
+                name: 'Kanchi Cotton Saree Copper Zari',
+                image: 'images/WA_Sarees/IMG-20240817-WA0007.jpg',
+                price: '₹1',
                 description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
             },
+            2: {
+                name: 'Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0018.jpg',
+                price: '₹150',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            3: {
+                name: 'Banarasi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0019.jpg',
+                price: '₹250',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            4: {
+                name: 'Lucknow Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0020.jpg',
+                price: '₹300',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            5: {
+                name: 'Kanchipuram Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0021.jpg',
+                price: '₹400',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            6: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0022.jpg',
+                price: '₹485',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            7: {
+                name: 'Chettinadu Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0023.jpg',
+                price: '₹499',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            8: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0024.jpg',
+                price: '₹500',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            9: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0001.jpg',
+                price: '₹310',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            10: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0002.jpg',
+                price: '₹299',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            11: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0003.jpg',
+                price: '₹399',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            12: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0004.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            49: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0049.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            35: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0035.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            34: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0034.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            32: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0032.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            46: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0046.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            45: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0045.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            31: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0031.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            43: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0043.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            44: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0044.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            42: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0042.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            48: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0048.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            47: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0047.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            41: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0041.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            29: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0029.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            28: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0028.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            27: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0027.jpg',
+                price: '₹425',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            }
+            
             // Add more products if needed
         };
 

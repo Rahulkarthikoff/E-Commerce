@@ -3,191 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bharani Fashions</title>
-    <!--- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- font awesome CDN-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Stylesheet-->
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Login and Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+        .form-container {
+            width: 400px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 93%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .toggle-link {
+            color: #007BFF;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <!-- NavBar -->
-    <nav class="navbar">
-        <h1>Bharani Fashions</h1>
+    <div class="form-container">
+        <!-- Login Form -->
+        <form id="loginForm" onsubmit="login(event)">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+            <p>Don't have an account? <span class="toggle-link" onclick="showSignupForm()">Sign up here</span>.</p>
+        </form>
 
-        <div class="navbar-links">
-            <p class="side-navbar-link">
-                <button onclick="location.href = 'index.html'" class="header-button" >Home</button></p>
-            <p class="side-navbar-link">
-                <button onclick="location.href = 'collection.html'" class="header-button">Collections</button></p>
-            <p class="side-navbar-link">
-                <button onclick="location.href = 'cart.html'"class="header-button">Cart</button></p>
-            <p class="side-navbar-link">
-                <button onclick="location.href = 'contact.html'"class="header-button">Contact</button></p>
-
-        </div>
-
-
-        <div class="navbar-menu-toggle" onclick="showside()">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
-    <!-- Side Navbar-->
-    <div class="side-navbar">
-        <p onclick="closeside()">
-            <i class="fa-solid fa-xmark"></i>
-        </p>
-        <div class="side-navbar-links">
-            <p class="side-navbar-link"><a href="index.html">Home</a></p>
-            <p class="side-navbar-link"><a href="collection.html">Collections</a></p>
-            <p class="side-navbar-link"><a href="cart.html">Cart</a></p>
-            <p class="side-navbar-link"><a href="contact.html">Contact</a></p>
-  
-        </div>
+        <!-- Signup Form -->
+        <form id="signupForm" style="display: none;" onsubmit="signup(event)">
+            <h2>Sign Up</h2>
+            <div class="form-group">
+                <label for="signupName">Name:</label>
+                <input type="text" id="signupName" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPhone">Phone Number:</label>
+                <input type="tel" id="signupPhone" required>
+            </div>
+            <div class="form-group">
+                <label for="signupAddress">Address:</label>
+                <input type="text" id="signupAddress" required>
+            </div>
+            <div class="form-group">
+                <label for="signupAge">Age:</label>
+                <input type="number" id="signupAge" required>
+            </div>
+            <div class="form-group">
+                <label for="signupGender">Gender:</label>
+                <select id="signupGender" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sign Up">
+            </div>
+            <p>Already have an account? <span class="toggle-link" onclick="showLoginForm()">Login here</span>.</p>
+        </form>
     </div>
 
+    <script>
+        // Toggle between signup and login forms
+        function showSignupForm() {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("signupForm").style.display = "block";
+        }
 
-    <!--Header-->
+        function showLoginForm() {
+            document.getElementById("signupForm").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+        }
 
-    <div class="header">
-        <div class="header-container">
-            <h1>
-                Wear Traditionals...
-            </h1>
-            <h4>
-                Be proud
-            </h4>
-            <button onclick="location.href = 'collection.html'" class="header-button">Shop Now</button>
-        </div>
-        <div class="header-img">
-            <img class="header-img-img"src="images/saree1.webp" alt="sarees">
-        </div>
-    </div>
+        // Signup Function
+        function signup(event) {
+            event.preventDefault();
 
-    <!--Service-->
-    <div class="service">
-        <div class="service-container-1">
-            <h1>We are the Nest which have the Best</h1>
-            <p> || Our Customer satisfaction is very important for us</p>
-        </div>
-        <div class="service-container-2">
-            <div>
-                <i class="fa-regular fa fa-thumbs-up" style="background: transparent;"></i>
-                <h4>100% Customer Satisfaction</h4>
-                <p>We Work for each and every customer to fullfill their needs</p>
-            </div>
-            <div>
-                <i class="fa-regular fa-solid fa-heart" style="color: red;"></i>
-                <h4>Loved by many in recent days</h4>
-                <p>Our Products are loved by many people irrespective of ages</p>
-            </div>
-            <div>
-                <i class="fa fa-phone-square"></i>
-                <h4>Customer Support</h4>
-                <p>Issues with products will be cleared by 24x7 support team</p>
-            </div>
-            
-        </div>
-    </div>
-    
-    <!--NewArrivals-->
-    <div >
-        <h2 style="padding-left: 15px;">New Arrival</h2>
-        <div class="newarrival">
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0007.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=1'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0018.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=2'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0019.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=3'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0020.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=4'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0021.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=5'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0022.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=6'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0023.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=7'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0024.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=8'">Shop Now            <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-        </div>
-    </div>
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+            const phone = document.getElementById("signupPhone").value;
+            const address = document.getElementById("signupAddress").value;
+            const age = document.getElementById("signupAge").value;
+            const gender = document.getElementById("signupGender").value;
 
-    <div>
-        <h2 style="padding-left: 15px;">Most Wanted</h2>
-        <div class="newarrival">
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0001.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=9'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0002.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=10'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0003.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=11'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="newarrival-container">
-                <img src="images\WA_Sarees\IMG-20240817-WA0004.jpg" alt="">
-                <button onclick="location.href = 'product.html?id=12'">Shop Now           <i class="fa-solid fa-arrow-right"></i></button>
-            </div> 
-        </div>
-    </div>
+            // Create user object
+            const user = {
+                email,
+                password,
+                phone,
+                address,
+                age,
+                gender
+            };
 
-    <!--NewsLetter-->
-    <div class="newsletter">
-        <h2>Join our Newsletter</h2>
-        <p>SignUp to get regular updates and offers</p>
-        <div>
-            <input type="text" class="search">
-        </div>
-        <div>
-            <button>Subscribe</button>
-        </div>
-    </div>
+            // Save user data in localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            users.push(user);
+            localStorage.setItem("users", JSON.stringify(users));
 
-    <!--Footer-->
-    <div class="Footer">
-        <div class="footer-container">
-            <div class="footer-box-1">
-                <h2 class="headingText">BharaniFashions</h2>
-                <p>Wrap Yourself in Tradition, Embrace Every Emotion - Discover the Magic of Sarees with Us!</p>
-                <div class="font-icon-container">
-                    <button onclick="location.href = 'https://www.facebook.com/login.php'" style="background-color: transparent;"><i class="fa-brands fa-facebook" style="color: #ffffff"></i></button>
-                    <button onclick="location.href = 'https://www.youtube.com/'" style="background-color: transparent;"><i class="fa-brands fa-youtube" style="color: #ffffff"></i></button>
-                    <button onclick="location.href = 'https://x.com/'" style="background-color: transparent;"><i class="fa-brands fa-twitter" style="color: #ffffff"></i></button>
-                    <button onclick="location.href = 'https://web.whatsapp.com/'" style="background-color: transparent;"><i class="fa-brands fa-whatsapp" style="color: #ffffff"></i></button>
-                </div>
-                <p>@2025 BharaniFashions.in</p>
-            </div>
-            </div>
-        </div>
-        
-    </div>
+            alert("Signup successful! You can now log in.");
+            document.getElementById("signupForm").reset();
+            showLoginForm(); // Show login form after signup
+        }
 
-    <!-- Javascript -->
-    <script type="text/javascript" src="index.js"></script>  
-    
+        // Login Function
+        function login(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+
+            // Retrieve users from localStorage
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Check if user exists
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                alert("Login successful!");
+                window.location.href = "home.html"; // Redirect to home page
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        }
+    </script>
 </body>
 </html>
