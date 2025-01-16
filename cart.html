@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* nav.navbar {
+            background-color: #1D232C;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-button {
+            background-color: #fff;
+            color: #1D232C;
+            border: 1px solid #1D232C;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .header-button:hover {
+            background-color: #1D232C;
+            color: #fff;
+        } */
+
+        .cart-container {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border: 2px solid #1D232C;
+            border-radius: 5px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item h4 {
+            margin: 0 0 5px;
+        }
+
+        .cart-item p {
+            margin: 0;
+            color: #555;
+        }
+
+        .cart-item-price {
+            font-weight: bold;
+            color: #1D232C;
+        }
+
+        .cart-item-details button{
+            margin-top: 10px;
+            background-color: #1D232C;
+            color: #fff;
+            margin-left: 10px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .cart-item-details button:hover{
+            cursor: pointer;
+            border: 1px solid #1D232C;
+            background-color: #fff;
+            color: #1D232C;
+        }
+
+        .cart-buttons {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .clear-cart-button {
+            background-color: #1D232C;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .clear-cart-button:hover {
+            background-color: #fff;
+            color: #1D232C;
+            border: 1px solid #1D232C;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #555;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Bharani Fashions</h1>
+        <div class="navbar-links">
+            <button onclick="location.href = 'index.html'" class="header-button">Home</button>
+            <button onclick="location.href = 'collection.html'" class="header-button">Collections</button>
+            <button onclick="location.href = 'contact.html'" class="header-button">Contact</button>
+        </div>
+    </nav>
+    
+    <div class="cart-container">
+        <h2>Your Shopping Cart</h2>
+        <div id="cart-items">
+           
+        </div>
+        </div>
+        <div class="cart-buttons">
+            <button class="clear-cart-button" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve cart items from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+
+            // Render the cart items or show an empty message
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = `<p class="empty-cart">Your cart is empty.</p>`;
+            } else {
+                cartItems.forEach((item, index) => {
+                    cartItemsContainer.innerHTML += `
+                        <div class="cart-item" id="cart-item-${index}">
+                            <img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.src='placeholder.png';">
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${item.description}</p>
+                                <p class="cart-item-price">Price: ${item.price}</p>
+                                <button class="buy-now-button" onclick="buyNow(${index})">Buy Now</button>
+                                <button class="remove-from-cart-button" onclick="removeFromCart(${index})">Remove from Cart</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+                // Buy Now function
+                function buyNow(index) {
+                    const selectedProduct = cartItems[index];
+                    localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+                    window.location.href = 'payment.html'; // Redirect to payment page
+                }
+
+                // Remove from Cart function
+                function removeFromCart(index) {
+                    if (confirm('Are you sure you want to remove this item from the cart?')) {
+                        cartItems.splice(index, 1); // Remove the item from the array
+                        localStorage.setItem('cart', JSON.stringify(cartItems)); // Update localStorage
+                        document.getElementById(`cart-item-${index}`).remove(); // Remove the item from the UI
+
+                        // If the cart is empty after removal, show an empty cart message
+                        if (cartItems.length === 0) {
+                            cartItemsContainer.innerHTML = `<p class="empty-cart">Your cart is empty.</p>`;
+                        }
+                    }
+                }
+
+                // Clear cart function
+                function clearCart() {
+                    if (confirm('Are you sure you want to clear the cart?')) {
+                        localStorage.removeItem('cart');
+                        location.reload();
+                    }
+                }
+
+    </script>
+</body>
+</html>

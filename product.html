@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-container img {
+            width: 450px;
+            height: 450px;
+            margin-left: 500px;
+            border: 3px solid #1D232C;
+            padding: 5px;
+        }
+        .product-container {
+            margin-left: 50px;
+        }
+
+        .product-container button {
+            background-color: #1D232C;
+            border-radius: 10px;
+            color: #fff;
+            width: 100px;
+            height: 30px;
+        }
+
+        .product-container button:hover {
+            background-color: #fff;
+            color: #1D232C;
+            transition: 0.3s;
+            border: 1px solid #1D232C;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Bharani Fashions</h1>
+        <div class="navbar-links">
+            <p class="side-navbar-link">
+                <button onclick="location.href = 'index.html'" class="header-button">Home</button>
+            </p>
+            <p class="side-navbar-link">
+                <button onclick="location.href = 'collection.html'" class="header-button">Collections</button>
+            </p>
+            <p class="side-navbar-link">
+                <button onclick="location.href = 'cart.html'"class="header-button">Cart</button></p>
+            <p class="side-navbar-link">
+                <button onclick="location.href = 'contact.html'"class="header-button">Contact</button></p>
+        </div>
+    </nav>
+    
+    <div class="product-container">
+        <!-- Product details will be dynamically populated here -->
+    </div>
+
+    <script>
+        // Example product data
+        const products = {
+            1: {
+                name: 'Kanchi Cotton Saree',
+                image: 'images/WA_Sarees/IMG-20240817-WA0001.jpg',
+                price: '₹850',
+                description: '🥀Pure chettinadu of traditional kanchi cotton sarees🥀 80 count one side zari border 👌🏻🥀 High quality🥀 without blouse 🥀Length: 5.5 mtrs',
+            },
+            // Add more products if needed
+        };
+
+        // Extract product ID from URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id'); // `id` should match the query parameter in your URLs (e.g., `product.html?id=1`)
+
+        // Find the product and populate the page
+        const product = products[productId];
+        const productContainer = document.querySelector('.product-container');
+
+        if (product) {
+            productContainer.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h2>${product.name}</h2>
+                <p>${product.description}</p>
+                <h4>Price: ${product.price}</h4>
+                <button onclick="addToCart(${productId})">Buy Now</button>
+            `;
+        } else {
+            productContainer.innerHTML = `<p>Product not found.</p>`;
+        }
+
+        // Add to cart function
+        function addToCart(productId) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (products[productId]) {
+                cart.push(products[productId]); // Add the selected product to the cart
+                localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
+                alert(`${products[productId].name} has been added to your cart.`);
+                location.href = 'cart.html'; // Redirect to the cart page
+            } else {
+                alert('Error: Product not found.');
+            }
+        }
+    </script>
+</body>
+</html>

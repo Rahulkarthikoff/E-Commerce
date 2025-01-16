@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .payment-container button{
+            margin-top: 10px;
+            background-color: #1D232C;
+            color: #fff;
+            margin-left: 10px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .payment-container button:hover{
+            cursor: pointer;
+            border: 1px solid #1D232C;
+            background-color: #fff;
+            color: #1D232C;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Bharani Fashions</h1>
+        <div class="navbar-links">
+            <button onclick="location.href = 'index.html'" class="header-button">Home</button>
+            <button onclick="location.href = 'collection.html'" class="header-button">Collections</button>
+            <button onclick="location.href = 'cart.html'" class="header-button">Cart</button>
+            <button onclick="location.href = 'contact.html'" class="header-button">Contact</button>
+        </div>
+    </nav>
+    <div class="payment-container">
+        <h2>Payment Page</h2>
+        <div id="product-details"></div>
+        <button onclick="completePayment()">Complete Payment</button>
+    </div>
+
+    <script>
+        const productDetails = JSON.parse(localStorage.getItem('selectedProduct'));
+        const productDetailsContainer = document.getElementById('product-details');
+
+        if (productDetails) {
+            productDetailsContainer.innerHTML = `
+                <h3>${productDetails.name}</h3>
+                <p>${productDetails.description}</p>
+                <p>Price: ${productDetails.price}</p>
+            `;
+        } else {
+            productDetailsContainer.innerHTML = `<p>Error: No product selected.</p>`;
+        }
+
+        function completePayment() {
+            alert('Payment successful!');
+            localStorage.removeItem('selectedProduct'); // Clear selected product after payment
+            window.location.href = 'index.html'; // Redirect to home page
+        }
+    </script>
+</body>
+</html>
