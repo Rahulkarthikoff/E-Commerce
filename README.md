@@ -22,21 +22,24 @@ The project is live and can be accessed at:
 ## 📸 Screenshots  
 Here are some snapshots of the project:  
 1. **Home Page**  
-   ![Home Page](./screenshots/home-page.png)  
+   ![Home Page](./ScreenShotImage/Home%20Page.png)
 
-2. **Collections Page**  
-   ![Collections Page](./screenshots/collections-page.png)  
+3. **Collections Page**  
+   ![Collections Page](./ScreenShotImage/Collections%20Page.png)
 
-3. **Cart Page**  
-   ![Cart Page](./screenshots/cart-page.png)  
 
-4. **Contact Us Page**  
-   ![Contact Us Page](./screenshots/contact-us-page.png)  
+4. **Cart Page**  
+   ![Cart Page](./ScreenShotImage/Cart.png)
+   
 
-5. **Authentication**  
-   ![Authentication](./screenshots/authentication.png)  
+6. **Contact Us Page**  
+   ![Contact Us Page](./ScreenShotImage/Contact.png)
+  
 
-*(Note: Replace the `./screenshots/` path with the actual folder name where you store the images in your repository.)*  
+8. **Payment**  
+   ![Payment](./ScreenShotImage/Payment.png)
+
+
 
 ## 📂 Project Structure  
 ```plaintext  
